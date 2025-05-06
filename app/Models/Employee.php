@@ -16,6 +16,11 @@ class Employee extends Authenticatable
     {
         return $this->belongsToMany(Course::class,'course_employee');
     }
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
     public function quizSubmissions() {
         return $this->hasMany(QuizSubmission::class);
     }

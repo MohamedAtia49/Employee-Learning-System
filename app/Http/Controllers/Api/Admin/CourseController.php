@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCourseRequest;
+use App\Http\Requests\UpdateCourseRequest;
 use App\Services\CourseService;
 use Illuminate\Http\Request;
 
@@ -18,7 +20,7 @@ class CourseController extends Controller
     {
         return $this->courseService->index();
     }
-    public function store(Request $request)
+    public function store(StoreCourseRequest $request)
     {
         return $this->courseService->store($request);
     }
@@ -26,7 +28,7 @@ class CourseController extends Controller
     {
         return $this->courseService->show($id);
     }
-    public function update(Request $request, $id)
+    public function update(UpdateCourseRequest $request, $id)
     {
         return $this->courseService->update($request, $id);
     }

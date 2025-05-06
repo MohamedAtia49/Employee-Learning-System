@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Admin\AuthController;
 use App\Http\Controllers\Api\Admin\CourseController;
 use App\Http\Controllers\Api\Admin\QuizController;
+use App\Http\Controllers\Api\ProgressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('courses', CourseController::class);
         // Quiz Routes
         Route::apiResource('quizzes', QuizController::class);
+        // Progress Tracking For Employee In specific Course
+        Route::get('employees/{employeeId}/courses/{courseId}', [ProgressController::class, 'getProgress']);
     });
 });
