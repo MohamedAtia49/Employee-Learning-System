@@ -25,6 +25,7 @@ class QuizService{
         try {
             // Create the quiz
             $quiz = Quiz::create([
+                'course_id' => $validated['course_id'],
                 'title' => $validated['title'],
                 'description' => $validated['description'],
                 'start_at' => $validated['start_at'] ?? null,
@@ -88,6 +89,7 @@ class QuizService{
         try {
             // Update quiz details
             $quiz->update([
+                'course_id' => $validated['course_id']?? $quiz->course_id,
                 'title' => $validated['title'] ?? $quiz->title,
                 'description' => $validated['description'] ?? $quiz->description,
                 'start_at' => $validated['start_at'] ?? $quiz->start_at,

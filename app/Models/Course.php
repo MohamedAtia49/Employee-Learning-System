@@ -13,7 +13,7 @@ class Course extends Model
 
     public function quiz()
     {
-        return $this->hasOne(Quiz::class);
+        return $this->hasMany(Quiz::class);
     }
     public function employees()
     {
