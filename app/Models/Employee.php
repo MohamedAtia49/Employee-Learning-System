@@ -35,4 +35,9 @@ class Employee extends Authenticatable
         return $this->hasMany(LessonProgress::class);
     }
 
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
+    }
+
 }

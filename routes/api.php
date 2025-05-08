@@ -32,3 +32,4 @@ Route::prefix('v1')->group(function () {
         Route::get('employees/{employeeId}/courses/{courseId}', [ProgressController::class, 'getProgress']);
     });
 });
+

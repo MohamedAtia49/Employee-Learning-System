@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckEmployee;
 use App\Http\Middleware\JwtMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -13,9 +14,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // UnAuthenticated Middleware
+        // Check Authentication Middleware for Admins apis
         $middleware->alias([
             'jwt_auth' => JwtMiddleware::class
+        ]);
+        // Check Authentication Middleware for Employee
+        $middleware->alias([
+            'check_employee' => CheckEmployee::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

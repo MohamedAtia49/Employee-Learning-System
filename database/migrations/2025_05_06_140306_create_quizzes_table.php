@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('duration_minutes')->nullable();
             $table->boolean('is_published')->default(false);
             $table->unsignedTinyInteger('max_attempts')->default(1);
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
